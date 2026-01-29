@@ -3,11 +3,11 @@ new Float:g_bLastUsed[MAX_PLAYERS];
 public bot_menu(id)
 {
 	if(get_gametime() - g_bLastUsed[id] < 20.0 && !(get_user_flags(id) & ADMIN_BAN)){
-		client_print_color(id, print_team_red, "^4[BOT] ^1Trebuie sa astepti ^4[%.2f] ^1secunde pentru a folosit comanda din nou!", 20.0-(get_gametime() - g_bLastUsed[id]));
+		client_print_color(id, print_team_red, "^4[BOT] ^1You must wait ^4[%.2f] ^1seconds to use the command again.", 20.0-(get_gametime() - g_bLastUsed[id]));
 		return PLUGIN_HANDLED;
 	}
 
-	new menu = menu_create( "\rBot Menu:", "bot_handle" );
+	new menu = menu_create( "\r[FWO] \d- \wBot Menu:", "bot_handle" );
 	new text[256];	
 	menu_additem( menu, "\wStart/Restart Bot", "1");
 	
@@ -44,8 +44,10 @@ public bot_handle(id, menu, item)
 			g_BotData[paused] = false;
 		}
 		case 1:
-		{		
-			g_BotData[paused] = !g_BotData[paused];
+		{
+			//g_BotData[paused] = !g_BotData[paused];
+			g_BotData[paused] ^= true; // Toggle paused state (using ^= true to avoid compiler warning 226)
+
 		}
 		case 2:
 		{		
