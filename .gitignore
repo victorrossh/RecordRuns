@@ -13,6 +13,7 @@ update_replays.py
 # Vendor directory for dependencies
 dependencies/
 utils/
+bin/
 
 # Dependency versions lockfile
 pawn.lock
