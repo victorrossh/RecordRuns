@@ -33,7 +33,7 @@ public Float:botThink( id )
 		
 		animate_legs(id, currFrame[fKeys], bool:currFrame[fGrounded]);
 		entity_set_int(id, EV_INT_button, currFrame[fKeys]);
-		//set_user_fps(id, currFrame[fFps]);
+		set_user_fps(id, currFrame[fFps]);
 		
 		if(currFrame[fSync] > 0)
 			display_stats(id, currFrame[fStrafes], currFrame[fSync]);
